@@ -1,14 +1,13 @@
-let	express						= require('express');
-let	app								= express();
-let passport					= require('passport');
-let request						= require('request');
-let FortyTwoStrategy	= require('passport-42').Strategy;
-let dbConfig 					= require(process.env.PWD + '/db.js');
-middleware						= require(process.env.PWD + "/functions/middleware.js"),
-mongoose							= require('mongoose');
-let User							= require(process.env.PWD + '/models/user');
-let oauth2lib					= require('oauth20-provider');
-// let auth 							= require('./config/auth.js');
+let	express		= require('express');
+let	app		= express();
+let 	passport	= require('passport');
+let 	request		= require('request');
+let 	FortyTwoStrategy= require('passport-42').Strategy;
+let 	dbConfig 	= require(process.env.PWD + '/db.js');
+middleware		= require(process.env.PWD + "/functions/middleware.js"),
+mongoose		= require('mongoose');
+let User		= require(process.env.PWD + '/models/user');
+let oauth2lib		= require('oauth20-provider');
 
 
 
@@ -112,11 +111,6 @@ app.get('/auth/intra/callback',
     }
 ));
 
-
-// UID = "805ffb1479a15da3bfd1268eb1fea91bdbed50affc7a14d957ce3afc932f4b07"
-// SECRET = "7438f6de3bde946ea9b8990591e1b23f5951524ac7f4616881f9c506e61e4679"
-// client = Client.new(UID, SECRET, site: "https://api.intra.42.fr")
-// token = client.client_credentials.get_token
 
 function fillIntraUser(token, profile){
   var newUser = new User();
